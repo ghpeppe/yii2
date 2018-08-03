@@ -5,10 +5,14 @@ Puoi installare Yii in due modi, usando [Composer](https://getcomposer.org/) o s
 Il metodo preferito è il primo, perché ti consente di installare [estensioni](structure-extensions.md) o aggiornare il core di Yii 
 semplicemente eseguendo un comando.
 
-> Nota: diversamente da Yii 1, le installazioni standard di Yii 2 comportano il download e l'installazione sia del framework che dello scheletro dell'applicazione
+Le installazioni standard di Yii comportano il download e l'installazione sia del framework che di un modello di progetto. Un modello di progetto è un progetto Yii funzionante che implementa alcune funzionalità di base, come login, modulo di contatto, ecc. Il suo codice è organizzato come raccomandato. Pertanto, può essere un buon punto di partenza per i tuoi progetti.
+
+In questa e nelle prossime sezioni, descriveremo come installare Yii con il cosiddetto modello di progetto di base e come implementare nuove funzionalità sopra a questo modello. Yii fornisce anche un altro modello chiamato [modello di progetto avanzato](https://www.yiiframework.com/extension/yiisoft/yii2-app-advanced/doc/guide) da utilizzare preferibilmente in un ambiente di sviluppodi squadra per realizzare applicazioni a più livelli.
+
+> Info: il modello di progetto di base è adatto per lo sviluppo del 90 percento delle applicazioni Web. Si differenzia dal modello di progetto avanzato principalmente per come è organizzato il codice. Se sei nuovo di Yii, ti consigliamo vivamente di attenersi al modello di progetto di base per le sue funzionalità semplici ma sufficienti.
 
 
-Installazione via Composer <span id="installing-via-composer"></span>
+Installazione tramite Composer <span id="installing-via-composer"></span>
 --------------------------
 
 Se non hai già installato Composer puoi farlo seguendo le istruzioni al sito 
