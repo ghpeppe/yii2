@@ -26,7 +26,7 @@ Su Windows devi scaricare ed eseguire [Composer-Setup.exe](https://getcomposer.o
 
 Fai riferimento alla [documentazione di Composer](https://getcomposer.org/doc/articles/troubleshooting.md) per qualsiasi problema. Se sei un nuovo utente di Composer, ti consigliamo inoltre di leggere almeno la [Guida di base](https://getcomposer.org/doc/01-basic-usage.md) della documentazione.
 
-In questa guida tutti i comandi presuppongono che composer sia stato installato [a livello globale](https://getcomposer.org/doc/00-intro.md#globally) in modo che sia disponibile come comando `composer`. Se invece stai utilizzando `composer.phar` nella directory locale, è necessario aggiustare i comandi di esempio di conseguenza.
+In questa guida tutti i comandi presuppongono che composer sia stato installato [a livello globale](https://getcomposer.org/doc/00-intro.md#globally) in modo che sia disponibile come comando `composer`. Se invece stai utilizzando `composer.phar` in una cartella locale, è necessario aggiustare i comandi di esempio di conseguenza.
 
 Se hai già Composer installato assicurati di avere una versione aggiornata. Puoi aggiornare Composer con il comando
 `composer self-update`.
@@ -37,26 +37,17 @@ Se hai già Composer installato assicurati di avere una versione aggiornata. Puo
 
 Una volta installato Composer, puoi installare Yii eseguendo questo comando in una directory accessbile via web:
 
-    composer global require "fxp/composer-asset-plugin:^1.4.1"
     composer create-project --prefer-dist yiisoft/yii2-app-basic basic
 
-Il primo comando installa il [plugin composer asset](https://github.com/francoispluchino/composer-asset-plugin/)
-che consente di gestire le dipendenze di bower e npm tramite Composer. Devi eseguire questo comando solo una volta. Il secondo 
-installa Yii in una directory di nome `basic`. Puoi scegliere un nome diverso, se preferisci.
+Questo installerà l'ultima versione stabile del modello di applicazione Yii in una cartella chiamata `basic`. Se vuoi puoi utilizzare un nome differente.
 
-> Nota: durante l'installazione potrebbe essere che Composer ti chieda le credenziali di Github, per superato limite di utilizzo
-> delle API di Github. Questa situazione è normale perché Composer deve scaricare molte informazioni per tutti i pacchetti da Github.
-> Accedendo a Github aumenterà il limite di utilizzo delle API, consentendo a Composer di completare il suo lavoro. Per maggiori 
-> dettagli fai riferimento alla 
-> [documentazione di Composer](https://getcomposer.org/doc/articles/troubleshooting.md#api-rate-limit-and-oauth-tokens).
+> Info: Se il comando `composer create-project` fallisce, puoi fare riferimento alla sezione [Risoluzione dei problemi della Documentazione di composer](https://getcomposer.org/doc/articles/troubleshooting.md) per gli errori comuni. Una volta corretto l'errore, è possibile riprendere l'installazione interrotta eseguendo `composer update` all'interno della cartella `basic`.
 
-> Suggerimento: se vuoi installare l'ultima versione di sviluppo di Yii, puoi usare questo comando che aggiunge una 
-> [opzione di stabilità](https://getcomposer.org/doc/04-schema.md#minimum-stability):
->
->     composer create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
->
-> Considera che la versione di sviluppo di Yii non dovrebbe essere utilizzata per siti di produzione perché potrebbe rendere instabile
-> il tuo codice.
+> Suggerimento: se si desidera installare l'ultima versione di sviluppo di Yii, è possibile utilizzare il seguente comando, che aggiunge un'opzione di stabilità:
+
+    composer create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
+
+Si noti che la versione di sviluppo di Yii non dovrebbe essere utilizzata per la produzione perché potrebbe rendere instabile il tuo codice.
 
 
 Installazione da un archivio <span id="installing-from-archive-file"></span>
@@ -65,7 +56,7 @@ Installazione da un archivio <span id="installing-from-archive-file"></span>
 L'installazione da un archivio compresso comporta tre passaggi:
 
 1. Scaricare l'archivio da [yiiframework.com](http://www.yiiframework.com/download/).
-2. Scompattare l'archivio in una directory accessible via web.
+2. Scompattare l'archivio in una cartella accessible via web.
 3. Modificare il file `config/web.php` inserendo una chiave segreta per il parametro di configurazione `cookieValidationKey` 
    (questa operazione viene fatta automaticamente se installi tramite Composer):
 
@@ -78,15 +69,31 @@ L'installazione da un archivio compresso comporta tre passaggi:
 Altre modalità di installazione <span id="other-installation-options"></span>
 -------------------------------
 
-Le istruzioni sopra elencate mostrano come installare Yii, e creano inoltre un'applicazione web base funzionante.
-Questo approccio è un ottimo punto di partenza per progetti minori, o se stai imparando Yii.
+Le istruzioni sopra elencate mostrano come installare Yii, e creano inoltre un'applicazione web base funzionante. Questo approccio è un ottimo punto di partenza per progetti grandi o piccoli che siano. E' inoltre particolarmente indicato se stai imparando Yii.
 
 Ma ci sono altre opzioni disponibili per l'installazione:
 
-* se vuoi installare solo il core e costruire l'applocazione da zero puoi seguire le istruzioni della sezione
+* se vuoi installare solo il core e costruire l'applicazione da zero puoi seguire le istruzioni della sezione
   [costruire un'applicazione da zero](tutorial-start-from-scratch.md).
 * se vuoi avviare un'applicazione più sofisticata, che meglio si sposa per uno sviluppo di gruppo, puoi considerare l'insallazione del
   [template di applicazione avanzata](tutorial-advanced-app.md).
+
+
+Installazione degli Assets <span id="installing-assets"></span>
+---------------------------
+
+Yii si affida a [Bower](http://bower.io/) e/o pacchetti [NPM](https://www.npmjs.org/) per l'installazione di librerie di risorse (CSS e JavaScript). Yii utilizza Composer per ottenere queste librerie, potendo così gestire contemporaneamente versioni di pacchetti PHP, CSS e JavaScript. Questo può essere ottenuto utilizzando [asset-packagist.org](https://asset-packagist.org/) oppure il [composer asset plugin](https://github.com/francoispluchino/composer-asset-plugin/). Fai riferimento alla [documentazione degli Assets](structure-assets) per ulteriori dettagli.
+
+Potresti voler gestire le tue risorse tramite il client nativo Bower/NPM, utilizzare CDN oppure evitare interamente l'installazione degli Assets. Per impedire l'installazione degli Assets tramite Composer, aggiungi le seguenti righe al tuo `composer.json`:
+
+    "replace": {
+        "bower-asset/jquery": ">=1.11.0",
+        "bower-asset/inputmask": ">=3.2.0",
+        "bower-asset/punycode": ">=1.3.0",
+        "bower-asset/yii2-pjax": ">=2.0.0"
+    },
+
+> Nota: evitando l'installazione degli assets tramite Composer, si è responsabili della loro installazione e della risoluzione dei conflitti di versione. Preparati a eventuali incoerenze tra i file di risorse di estensioni diverse.
 
 
 Verifica dell'installazione <span id="verifying-installation"></span>
