@@ -20,6 +20,7 @@ Introduzione
 Primi passi
 -----------
 
+* [Cosa hai bisogno di sapere](start-prerequisites.md)
 * [Installare Yii](start-installation.md)
 * [Esecuzione applicazioni](start-workflow.md)
 * [Dire Ciao](start-hello.md)
@@ -54,8 +55,7 @@ Gestione delle richieste
 * [Instradamenti (routing)](runtime-routing.md)
 * [Richieste](runtime-requests.md)
 * [Risposte](runtime-responses.md)
-* **TBD** [Sessioni e cookie](runtime-sessions-cookies.md)
-* [Analisi e generazione URL](runtime-url-handling.md)
+* [Sessioni e cookie](runtime-sessions-cookies.md)
 * [Gestione errori](runtime-handling-errors.md)
 * [Log](runtime-logging.md)
 
@@ -81,10 +81,10 @@ Utilizzo del database
 * [Query Builder](db-query-builder.md): Esecuzione di query al database usando un semplice livello di astrazione
 * [Active Record](db-active-record.md): The Active Record ORM, retrieving and manipulating records, and defining relations
 * [Migrazoni](db-migrations.md): Applicare il controllo di versione al database in un ambiente di sviluppo di gruppo
-* **TBD** [Sphinx](db-sphinx.md)
-* **TBD** [Redis](db-redis.md)
-* **TBD** [MongoDB](db-mongodb.md)
-* **TBD** [ElasticSearch](db-elasticsearch.md)
+* [Sphinx](db-sphinx.md)
+* [Redis](db-redis.md)
+* [MongoDB](db-mongodb.md)
+* [ElasticSearch](db-elasticsearch.md)
 
 
 Ricezione dati dagli utenti
@@ -92,16 +92,18 @@ Ricezione dati dagli utenti
 
 * [Creare form](input-forms.md)
 * [Validazione informazioni](input-validation.md)
-* **TBD** [Caricamento file](input-file-upload.md)
-* **TBD** [Raccogliere dati per più modelli](input-multiple-models.md)
+* [Caricamento file](input-file-upload.md)
+* [Raccolta dati tabellari](input-tabular-input.md)
+* [Raccogliere dati per più modelli](input-multiple-models.md)
+* [Estendere ActiveForm al Client](input-form-javascript.md)
 
 
 Visualizzazione dei dati
 ------------------------
 
-* **TBD** [Formattazione](output-formatting.md)
-* **TBD** [Paginazione](output-pagination.md)
-* **TBD** [Ordinamento](output-sorting.md)
+* [Formattazione](output-formatting.md)
+* [Paginazione](output-pagination.md)
+* [Ordinamento](output-sorting.md)
 * [Data Provider](output-data-providers.md)
 * [Data Widget](output-data-widgets.md)
 * [Utilizzo del Client Scripts](output-client-scripts.md)
@@ -111,11 +113,13 @@ Visualizzazione dei dati
 Sicurezza
 ---------
 
+* [Panoramica sulla sicurezza](security-overview.md)
 * [Autenticazione](security-authentication.md)
 * [Autorizzazione](security-authorization.md)
 * [Utilizzo delle password](security-passwords.md)
-* **TBD** [Auth Clients](security-auth-clients.md)
-* **TBD** [Buona prassi](security-best-practices.md)
+* [Crittografia](security-cryptography.md)
+* [Auth Clients](security-auth-clients.md)
+* [Buone prassi](security-best-practices.md)
 
 
 Cache
@@ -147,7 +151,7 @@ Strumenti di sviluppo
 
 * [Barra di debug e debugger](tool-debugger.md)
 * [Generazione codice con Gii](tool-gii.md)
-* **TBD** [Generazione documentazione API](tool-api-doc.md)
+* [Generazione documentazione API](tool-api-doc.md)
 
 
 Test
@@ -168,35 +172,37 @@ Argomenti speciali
 * [Creazione di una applicazione da zero](tutorial-start-from-scratch.md)
 * [Comandi da console](tutorial-console.md)
 * [Validazioni predefinite](tutorial-core-validators.md)
+* [Docker](tutorial-docker.md)
 * [Internazionalizzazione](tutorial-i18n.md)
-* [Invio email](tutorial-mailing.md)
+* [Gestione email](tutorial-mailing.md)
 * [Ottimizzazione delle prestazioni](tutorial-performance-tuning.md)
-* **TBD** [Ambienti di hosting condiviso](tutorial-shared-hosting.md)
+* [Ambienti di hosting condiviso](tutorial-shared-hosting.md)
 * [Template Engine](tutorial-template-engines.md)
 * [Utilizzo di codice di terze parti](tutorial-yii-integration.md)
+* [Utilizzare Yii come micro framework](tutorial-yii-as-micro-framework.md)
 
 
 Widget
 ------
 
-* GridView: link to demo page
-* ListView: link to demo page
-* DetailView: link to demo page
-* ActiveForm: link to demo page
-* Pjax: link to demo page
-* Menu: link to demo page
-* LinkPager: link to demo page
-* LinkSorter: link to demo page
-* [Widget Bootstrap](widget-bootstrap.md)
-* [Widget Jquery UI](widget-jui.md)
+* [GridView](https://www.yiiframework.com/doc-2.0/yii-grid-gridview.html)
+* [ListView](https://www.yiiframework.com/doc-2.0/yii-widgets-listview.html)
+* [DetailView](https://www.yiiframework.com/doc-2.0/yii-widgets-detailview.html)
+* [ActiveForm](https://www.yiiframework.com/doc-2.0/guide-input-forms.html#activerecord-based-forms-activeform)
+* [Pjax](https://www.yiiframework.com/doc-2.0/yii-widgets-pjax.html)
+* [Menu](https://www.yiiframework.com/doc-2.0/yii-widgets-menu.html)
+* [LinkPager](https://www.yiiframework.com/doc-2.0/yii-widgets-linkpager.html)
+* [LinkSorter](https://www.yiiframework.com/doc-2.0/yii-widgets-linksorter.html)
+* [Bootstrap Widgets](https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap/doc/guide)
+* [jQuery UI Widgets](https://www.yiiframework.com/extension/yiisoft/yii2-jui/doc/guide)
 
 
 Helper
 ------
 
 * [Panoramica](helper-overview.md)
-* **TBD** [ArrayHelper](helper-array.md)
-* **TBD** [Html](helper-html.md)
-* **TBD** [Url](helper-url.md)
+* [ArrayHelper](helper-array.md)
+* [Html](helper-html.md)
+* [Url](helper-url.md)
 * **TBD** [Security](helper-security.md)
 
