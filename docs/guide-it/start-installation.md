@@ -57,8 +57,7 @@ L'installazione da un archivio compresso comporta tre passaggi:
 
 1. Scaricare l'archivio da [yiiframework.com](http://www.yiiframework.com/download/).
 2. Scompattare l'archivio in una cartella accessible via web.
-3. Modificare il file `config/web.php` inserendo una chiave segreta per il parametro di configurazione `cookieValidationKey` 
-   (questa operazione viene fatta automaticamente se installi tramite Composer):
+3. Modificare il file `config/web.php` inserendo una chiave segreta per il parametro di configurazione `cookieValidationKey` (questa operazione viene fatta automaticamente se installi tramite Composer):
 
    ```php
    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -73,10 +72,8 @@ Le istruzioni sopra elencate mostrano come installare Yii, e creano inoltre un'a
 
 Ma ci sono altre opzioni disponibili per l'installazione:
 
-* se vuoi installare solo il core e costruire l'applicazione da zero puoi seguire le istruzioni della sezione
-  [costruire un'applicazione da zero](tutorial-start-from-scratch.md).
-* se vuoi avviare un'applicazione più sofisticata, che meglio si sposa per uno sviluppo di gruppo, puoi considerare l'insallazione del
-  [template di applicazione avanzata](tutorial-advanced-app.md).
+* se vuoi installare solo il core e costruire l'applicazione da zero puoi seguire le istruzioni della sezione [costruire un'applicazione da zero](tutorial-start-from-scratch.md).
+* se vuoi avviare un'applicazione più sofisticata, che meglio si sposa per uno sviluppo di gruppo, puoi considerare l'insallazione del [template di applicazione avanzata](tutorial-advanced-app.md).
 
 
 Installazione degli Assets <span id="installing-assets"></span>
@@ -86,12 +83,14 @@ Yii si affida a [Bower](http://bower.io/) e/o pacchetti [NPM](https://www.npmjs.
 
 Potresti voler gestire le tue risorse tramite il client nativo Bower/NPM, utilizzare CDN oppure evitare interamente l'installazione degli Assets. Per impedire l'installazione degli Assets tramite Composer, aggiungi le seguenti righe al tuo `composer.json`:
 
+```
     "replace": {
         "bower-asset/jquery": ">=1.11.0",
         "bower-asset/inputmask": ">=3.2.0",
         "bower-asset/punycode": ">=1.3.0",
         "bower-asset/yii2-pjax": ">=2.0.0"
     },
+```
 
 > Nota: evitando l'installazione degli assets tramite Composer, si è responsabili della loro installazione e della risoluzione dei conflitti di versione. Preparati a eventuali incoerenze tra i file di risorse di estensioni diverse.
 
@@ -99,32 +98,37 @@ Potresti voler gestire le tue risorse tramite il client nativo Bower/NPM, utiliz
 Verifica dell'installazione <span id="verifying-installation"></span>
 ---------------------------
 
-Dopo l'installazione puoi usare il tuo browser per accedere all'applicazione Yii installata con l'URL seguente:
+Al termine dell'installazione, configura il server Web (vedi la sezione successiva) o utilizza il [server Web PHP integrato](https://secure.php.net/manual/en/features.commandline.webserver.php) eseguendo il seguente comando nella directory Web del progetto:
 
 ```
-http://localhost/basic/web/index.php
+php yii serve
 ```
 
-Questo indirizzo assume che hai installato Yii in una directory di nome `basic`, direttamente nella *root* del tuo webserver,
-e che il webserver è in esecuzione sulla tua macchina locale (`localhost`). Potresti doverlo modificare a seconda del tuo ambiente
-di installazione.
+> Nota: per impostazione predefinita, il server HTTP ascolterà la porta 8080. Tuttavia, se tale porta è già in uso o si desidera servire più applicazioni in questo modo, è possibile specificare la porta da utilizzare. Basta aggiungere l'argomento --port:
+
+```
+php yii serve --port=8888
+```
+
+È possibile utilizzare il browser per accedere all'applicazione Yii installata con il seguente URL:
+
+```
+http: // localhost: 8080 /
+```
 
 ![Installazione di Yii completata con successo](images/start-app-installed.png)
 
-Dovresti vedere la pagina sopra di congratulazioni. In caso contrario verifica se la tua installazione di PHP soddisfa i requisiti minimi
-di Yii. Puoi verificare le richieste in due modi:
+Dovresti vedere la pagina di congratulazioni. In caso contrario verifica se la tua installazione di PHP soddisfa i requisiti minimi di Yii. Puoi verificare le richieste in due modi:
 
-* accedere all'indirizzo `http://localhost/basic/requirements.php` tramite browser;
-* lanciando questi comandi:
+* copia `/requirements.php` in `/web/requirements.php` e utilizzare un browser per accedere all'indirizzo `http://localhost/basic/requirements.php`;
+* eseguire i seguenti comandi:
 
   ```
   cd basic
   php requirements.php
   ```
 
-Devi configurare la tua installazione di PHP in modo che soddisfi le richieste minime di Yii. E' molto importante che tu stia usando 
-PHP 5.4 o successivo. Devi inoltre installare le [estensioni PDO di PHP](http://www.php.net/manual/en/pdo.installation.php) e un driver
-di database di PDO (come ad esempio `pdo_mysql` per i database MySQL), se la tua applicazione richiede un database.
+Devi configurare la tua installazione di PHP in modo che soddisfi le richieste minime di Yii. E' molto importante che tu stia usando PHP 5.4 o successivo. Devi inoltre installare le [estensioni PDO di PHP](http://www.php.net/manual/en/pdo.installation.php) e un driver di database di PDO (come ad esempio `pdo_mysql` per i database MySQL), se la tua applicazione richiede un database.
 
 
 Configurazione del webserver <span id="configuring-web-servers"></span>
